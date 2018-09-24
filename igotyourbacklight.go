@@ -66,9 +66,3 @@ func read(filename string) int64 {
 
 	return val
 }
-
-//
-// TODO read: /sys/class/backlight/intel_backlight/max_brightness
-// TODO write: /sys/class/backlight/intel_backlight/brightness (remember \n)
-// TODO: figure out how to test
-//
