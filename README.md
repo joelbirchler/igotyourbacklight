@@ -1,7 +1,5 @@
 Simple program to adjust the backlighting on my laptop.
 
-_Don't use this code as an example of how to write Go programs. I'm still learning the language. Feedback appreciated._
-
 * `igotyourbacklight` outputs the current backlight stats.
 * `igotyourbacklight <int>` where int is a number between -100 and 100 adjusts the brightness up or down by %.
 
@@ -12,3 +10,4 @@ _Don't use this code as an example of how to write Go programs. I'm still learni
 ## TODO
 
 * figure out how to test
+* better instructions for install and usage with i3wm
