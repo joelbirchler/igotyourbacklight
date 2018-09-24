@@ -19,21 +19,22 @@ func main() {
 			panic(err)
 		}
 
-		brightness.Increment(delta)
+		brightness.Increment(int(delta))
+		write(brightness)
+	} else {
+		fmt.Println(brightness)
 	}
-
-	fmt.Println(brightness)
 }
 
-func readMax() int64 {
+func readMax() int {
 	return read("max_brightness")
 }
 
-func readCurrent() int64 {
+func readCurrent() int {
 	return read("brightness")
 }
 
-func read(filename string) int64 {
+func read(filename string) int {
 	data, err := ioutil.ReadFile("/sys/class/backlight/intel_backlight/" + filename)
 	if err != nil {
 		panic(err)
@@ -46,5 +47,13 @@ func read(filename string) int64 {
 		panic(err)
 	}
 
-	return val
+	return int(val)
+}
+
+func write(b Brightness) {
+	s := fmt.Sprintf("%v\n", b.Value())
+	err := ioutil.WriteFile("output.txt", []byte(s), 0644)
+	if err != nil {
+		panic(err)
+	}
 }
