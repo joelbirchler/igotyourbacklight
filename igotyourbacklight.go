@@ -52,7 +52,7 @@ func read(filename string) int {
 
 func write(b Brightness) {
 	s := fmt.Sprintf("%v\n", b.Value())
-	err := ioutil.WriteFile("output.txt", []byte(s), 0644)
+	err := ioutil.WriteFile("/sys/class/backlight/intel_backlight/brightness", []byte(s), 0644)
 	if err != nil {
 		panic(err)
 	}
