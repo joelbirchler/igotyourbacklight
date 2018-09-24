@@ -11,7 +11,6 @@ _Don't use this code as an example of how to write Go programs. I'm still learni
 
 ## TODO
 
-* more or less sketch out the idea
 * write to /sys/class/backlight/intel_backlight/brightness (remember \n)
 * figure out how to test
 _

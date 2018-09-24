@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	current, max := readCurrent(), readMax()
+	brightness := Brightness{value: readCurrent(), max: readMax()}
 
 	if len(os.Args) == 2 {
 		arg := os.Args[1]
@@ -19,28 +19,10 @@ func main() {
 			panic(err)
 		}
 
-		adjusted := adjust(delta, current, max)
-		fmt.Println(adjusted)
-	} else {
-		percent := int64(100 * current / max)
-		fmt.Printf("%v%% (%v/%v)\n", percent, current, max)
+		brightness.Increment(delta)
 	}
 
-}
-
-// FIXME: what if we have a type (constrainedInt?) for the backlight int that keeps it's range in check and can give a percent?
-func adjust(deltaPercent int64, current int64, max int64) int64 {
-	percent := int64(100*current/max) + deltaPercent
-	adjusted := (max * percent) / 100
-
-	switch {
-	case adjusted < 0:
-		return 0
-	case adjusted > max:
-		return max
-	}
-
-	return adjusted
+	fmt.Println(brightness)
 }
 
 func readMax() int64 {
