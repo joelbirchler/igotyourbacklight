@@ -7,6 +7,16 @@ Simple program to adjust the backlighting on my laptop.
 
 `igotyourbacklight -10` makes the screen 10% dimmer.
 
-## TODO
 
-* better instructions for install and usage with i3wm
+## i3wm Setup
+
+Add the following to your i3wm config:
+```
+bindsym XF86MonBrightnessUp exec igotyourbacklight 10
+bindsym XF86MonBrightnessDown exec igotyourbacklight -10
+```
+
+
+## Compatibility
+
+This currently works on my laptop where the backlight device is accessible at `/sys/class/backlight/intel_backlight/`.
