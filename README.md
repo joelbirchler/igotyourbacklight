@@ -9,5 +9,4 @@ Simple program to adjust the backlighting on my laptop.
 
 ## TODO
 
-* figure out how to test
 * better instructions for install and usage with i3wm
